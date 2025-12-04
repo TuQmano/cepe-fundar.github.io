@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NADIA - Guía de Estilos Digital</title>
+    <style>
+        /* =========================================
+           1. IMPORTACIÓN DE FUENTES (Pág 5 Manual)
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+        /* =========================================
+           2. VARIABLES DE MARCA (Pág 7 Manual)
+           ========================================= */
+        :root {
+            /* Colores Principales */
+            --nadia-bg: #F5F5F5;
+            --nadia-blue: #2E27F3;
+            --nadia-black: #2A2A2A;
+            --nadia-green: #98D161;
+            --nadia-purple: #827DF8;
+
+            /* Tipografía */
+            --font-main: 'Inter', sans-serif;
+        }
+
+        /* =========================================
+           3. ESTILOS BASE
+           ========================================= */
+        body {
+            font-family: var(--font-main);
+            background-color: var(--nadia-bg);
+            color: var(--nadia-black);
+            margin: 0;
+            padding: 40px;
+            font-weight: 300; /* Inter Light por defecto */
+        }
+
+        h1, h2, h3 { margin-top: 0; }
+        
+        /* Contenedor Principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        section {
+            margin-bottom: 60px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 40px;
+        }
+
+        section:last-child { border-bottom: none; }
+
+        .section-title {
+            font-weight: 500;
+            color: var(--nadia-black);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            display: block;
+            border-left: 4px solid var(--nadia-green);
+            padding-left: 10px;
+        }
+
+        /* =========================================
+           4. SECCIÓN DE LOGOTIPO
+           ========================================= */
+        .logo-display {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            background-color: var(--nadia-bg);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        /* =========================================
+           5. SECCIÓN DE COLORES
+           ========================================= */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .color-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .color-swatch {
+            height: 100px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 15px;
+            font-size: 0.85rem;
+        }
+        .hex { display: block; font-weight: 700; margin-bottom: 5px; }
+        .name { color: #666; }
+
+        /* Clases de utilidad de color */
+        .bg-blue { background-color: var(--nadia-blue); }
+        .bg-green { background-color: var(--nadia-green); }
+        .bg-purple { background-color: var(--nadia-purple); }
+        .bg-black { background-color: var(--nadia-black); }
+        .bg-white { background-color: var(--nadia-bg); border: 1px solid #ddd; }
+
+        /* =========================================
+           6. TIPOGRAFÍA (Pág 6 Manual)
+           ========================================= */
+        .type-sample h1 { font-weight: 500; font-size: 2.5rem; }
+        .type-sample h2 { font-weight: 400; font-size: 1.8rem; color: var(--nadia-blue); }
+        .type-sample p { font-weight: 300; line-height: 1.6; max-width: 600px; }
+        
+        .font-meta {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        /* =========================================
+           7. ELEMENTOS GRÁFICOS (Págs 9 y 10)
+           ========================================= */
+        .graphic-elements {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .element-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--nadia-blue);
+            color: white;
+        }
+        .btn-primary:hover { background-color: var(--nadia-purple); }
+
+        .btn-secondary {
+            background-color: var(--nadia-green);
+            color: var(--nadia-black);
+        }
+
+        /* Contenedor Nube */
+        .cloud-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cloud-svg {
+            width: 300px;
+            height: 300px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header style="margin-bottom: 60px; border-bottom: 2px solid var(--nadia-blue); padding-bottom: 20px;">
+        <h1 style="margin-bottom: 10px;">Sistema de Diseño NADIA</h1>
+        <p>Nodo Argentino de Inteligencia Artificial</p>
+    </header>
+
+    <section>
+        <span class="section-title">01. Identidad Visual</span>
+        <div class="logo-display">
+            <svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                <style>
+                    .brand-text { font-family: 'Inter', sans-serif; font-weight: 500; fill: #2E27F3; }
+                </style>
+                <text x="0" y="55" font-size="60" class="brand-text" letter-spacing="-2">nadia</text>
+            </svg>
+
+            <svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="30" font-family="'Inter', sans-serif" font-weight="500" font-size="24" fill="#2E27F3" letter-spacing="-1">nadia</text>
+                <text x="0" y="55" font-family="'Inter', sans-serif" font-weight="300" font-size="14" fill="#2A2A2A">Nodo Argentino de</text>
+                <text x="0" y="72" font-family="'Inter', sans-serif" font-weight="300" font-size="14" fill="#2A2A2A">Inteligencia Artificial</text>
+            </svg>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-title">02. Paleta Cromática (Pág 7)</span>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch bg-blue"></div>
+                <div class="color-info"><span class="hex">#2E27F3</span><span class="name">Primary Blue</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch bg-green"></div>
+                <div class="color-info"><span class="hex">#98D161</span><span class="name">Accent Green</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch bg-purple"></div>
+                <div class="color-info"><span class="hex">#827DF8</span><span class="name">Secondary</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch bg-black"></div>
+                <div class="color-info"><span class="hex">#2A2A2A</span><span class="name">Text Black</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch bg-white"></div>
+                <div class="color-info"><span class="hex">#F5F5F5</span><span class="name">Background</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-title">03. Tipografía: Inter (Pág 6)</span>
+        <div class="type-sample">
+            <span class="font-meta">H1 - Inter Medium (500)</span>
+            <h1>Inteligencia Artificial para el Desarrollo</h1>
+            
+            <span class="font-meta">H2 - Inter Regular (400)</span>
+            <h2>Innovación tecnológica y políticas públicas</h2>
+            
+            <span class="font-meta">P - Inter Light (300)</span>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-title">04. Elementos Gráficos (Pág 9 y 10)</span>
+        
+        <div class="graphic-elements">
+            <div class="element-box">
+                <h4>Trama y Gradiente</h4>
+                <div style="width: 100%; height: 200px; border-radius: 12px; overflow: hidden; margin-top: 15px;">
+                    <svg width="100%" height="100%" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#98D161;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2E27F3;stop-opacity:1" />
+                            </linearGradient>
+                            <pattern id="patternScale" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M0,20 Q20,0 40,20 T80,20" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.3"/>
+                                <path d="M0,20 Q20,40 40,20 T80,20" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.3"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#gradBrand)"/>
+                        <rect width="100%" height="100%" fill="url(#patternScale)"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="element-box">
+                <h4>Isologo / Contenedor</h4>
+                <div class="cloud-container">
+                    <svg class="cloud-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#2E27F3" fill-opacity="0.1" stroke="#2E27F3" stroke-width="2" d="M200,60 C240,60 270,90 275,125 C310,125 340,155 340,195 C340,235 315,265 280,270 C270,310 235,340 195,340 C155,340 120,310 115,270 C75,265 60,230 60,195 C60,155 90,125 125,125 C130,90 160,60 200,60 Z" />
+                        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#2E27F3" font-family="'Inter'" font-size="24">Isologo</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-title">05. Elementos UI</span>
+        <div style="margin-top: 20px;">
+            <a href="#" class="btn btn-primary">Botón Primario</a>
+            <a href="#" class="btn btn-secondary">Botón Acento</a>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
