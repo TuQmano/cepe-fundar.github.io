@@ -1,552 +1,1008 @@
-/* NADIA Style Guide - CEPE-Fundar Website Redesign */
+/* ==========================================================================
+   1. IMPORTACIÓN DE FUENTES
+   Fuente principal: Inter (Light, Regular, Medium, Bold)
+   [cite: 30, 33, 36, 43, 46]
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
-/* ============================================
-   CSS Variables - Color Palette & Typography
-   ============================================ */
-
-:root {
-  /* Primary Colors */
-  --primary-color: #1a4d7a;
-  --primary-dark: #0d2d4a;
-  --primary-light: #2d6ba3;
-  
-  /* Secondary Colors */
-  --secondary-color: #7da5c7;
-  --secondary-dark: #5a7a95;
-  --secondary-light: #a8c5d9;
-  
-  /* Accent Colors */
-  --accent-color: #4a90a4;
-  --accent-dark: #2d5a6a;
-  --accent-light: #6bb0c4;
-  
-  /* Neutral Colors */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-light: #6a6a6a;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #e9ecef;
-  --border-color: #dee2e6;
-  
-  /* Status Colors */
-  --success-color: #28a745;
-  --warning-color: #ffc107;
-  --error-color: #dc3545;
-  --info-color: #17a2b8;
-  
-  /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-secondary: 'Inter', sans-serif;
-  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-  
-  /* Font Sizes */
-  --fs-xs: 0.75rem;    /* 12px */
-  --fs-sm: 0.875rem;   /* 14px */
-  --fs-base: 1rem;      /* 16px */
-  --fs-lg: 1.125rem;    /* 18px */
-  --fs-xl: 1.25rem;     /* 20px */
-  --fs-2xl: 1.5rem;     /* 24px */
-  --fs-3xl: 1.875rem;   /* 30px */
-  --fs-4xl: 2.25rem;    /* 36px */
-  --fs-5xl: 3rem;       /* 48px */
-  
-  /* Spacing */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;     /* 8px */
-  --spacing-md: 1rem;      /* 16px */
-  --spacing-lg: 1.5rem;    /* 24px */
-  --spacing-xl: 2rem;      /* 32px */
-  --spacing-2xl: 3rem;     /* 48px */
-  --spacing-3xl: 4rem;     /* 64px */
-  
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-base: 250ms ease-in-out;
-  --transition-slow: 350ms ease-in-out;
-}
-
-/* ============================================
-   Typography
-   ============================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-body {
-  font-family: var(--font-primary);
-  font-size: var(--fs-base);
-  line-height: 1.6;
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text-primary);
-  margin-top: 0;
-  margin-bottom: var(--spacing-md);
-}
-
-h1 {
-  font-size: var(--fs-4xl);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: var(--fs-3xl);
-  font-weight: 600;
-}
-
-h3 {
-  font-size: var(--fs-2xl);
-  font-weight: 600;
-}
-
-h4 {
-  font-size: var(--fs-xl);
-  font-weight: 600;
-}
-
-p {
-  margin-bottom: var(--spacing-md);
-  color: var(--text-secondary);
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-a:hover {
-  color: var(--primary-dark);
-  text-decoration: underline;
-}
-
-a:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* ============================================
-   Navigation Bar
-   ============================================ */
-
-.navbar {
-  background-color: var(--primary-color) !important;
-  box-shadow: var(--shadow-md);
-  padding: var(--spacing-md) 0;
-  transition: all var(--transition-base);
-}
-
-.navbar-brand {
-  font-weight: 600;
-  font-size: var(--fs-xl);
-  color: var(--bg-primary) !important;
-  letter-spacing: -0.01em;
-}
-
-.navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-weight: 500;
-  padding: var(--spacing-sm) var(--spacing-md) !important;
-  margin: 0 var(--spacing-xs);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--bg-primary) !important;
-  background-color: rgba(255, 255, 255, 0.15);
-  text-decoration: none;
-}
-
-.navbar-toggler {
-  border: none;
-  padding: var(--spacing-xs);
-}
-
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
-}
-
-/* ============================================
-   Main Content
-   ============================================ */
-
-.quarto-title-block {
-  margin-bottom: var(--spacing-3xl);
-  padding-bottom: var(--spacing-xl);
-  border-bottom: 2px solid var(--border-color);
-}
-
-.quarto-title {
-  margin-bottom: var(--spacing-lg);
-}
-
-.quarto-title .title {
-  font-size: var(--fs-5xl);
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.1;
-}
-
-.description {
-  font-size: var(--fs-xl);
-  color: var(--text-secondary);
-  font-weight: 400;
-  margin-top: var(--spacing-md);
-}
-
-.content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-lg);
-}
-
-/* ============================================
-   Blockquotes
-   ============================================ */
-
-blockquote {
-  border-left: 4px solid var(--primary-color);
-  padding-left: var(--spacing-lg);
-  margin: var(--spacing-xl) 0;
-  font-style: italic;
-  color: var(--text-secondary);
-  background-color: var(--bg-secondary);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-}
-
-blockquote p {
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--fs-lg);
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-
-/* ============================================
-   Lists
-   ============================================ */
-
-ul, ol {
-  margin-bottom: var(--spacing-md);
-  padding-left: var(--spacing-xl);
-}
-
-li {
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-li strong {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-/* ============================================
-   Tables
-   ============================================ */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--spacing-xl) 0;
-  background-color: var(--bg-primary);
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-table thead {
-  background-color: var(--primary-color);
-  color: var(--bg-primary);
-}
-
-table th {
-  padding: var(--spacing-md);
-  font-weight: 600;
-  text-align: left;
-  font-size: var(--fs-base);
-}
-
-table td {
-  padding: var(--spacing-md);
-  border-top: 1px solid var(--border-color);
-  color: var(--text-secondary);
-}
-
-table tbody tr:hover {
-  background-color: var(--bg-secondary);
-  transition: background-color var(--transition-fast);
-}
-
-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* ============================================
-   Images
-   ============================================ */
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-}
-
-.quarto-figure {
-  margin: var(--spacing-xl) 0;
-  text-align: center;
-}
-
-.quarto-figure img {
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.quarto-figure img:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* ============================================
-   Sections
-   ============================================ */
-
-section {
-  margin: var(--spacing-2xl) 0;
-}
-
-section h4 {
-  color: var(--primary-color);
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-lg);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--border-color);
-}
-
-/* ============================================
-   Horizontal Rules
-   ============================================ */
-
-hr {
-  border: none;
-  border-top: 2px solid var(--border-color);
-  margin: var(--spacing-2xl) 0;
-}
-
-/* ============================================
-   Code Blocks
-   ============================================ */
-
-code {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  background-color: var(--bg-tertiary);
-  padding: 0.2em 0.4em;
-  border-radius: var(--radius-sm);
-  color: var(--primary-color);
-}
-
-pre {
-  background-color: var(--bg-tertiary);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  overflow-x: auto;
-  margin: var(--spacing-md) 0;
-}
-
-pre code {
-  background-color: transparent;
-  padding: 0;
-}
-
-/* ============================================
-   Buttons & Links
-   ============================================ */
-
-.btn {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  transition: all var(--transition-fast);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--bg-primary);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-/* ============================================
-   Responsive Design
-   ============================================ */
-
-@media (max-width: 768px) {
-  :root {
-    --fs-5xl: 2.25rem;
-    --fs-4xl: 1.875rem;
-    --fs-3xl: 1.5rem;
+   /* ==========================================================================
+      2. VARIABLES DE MARCA (ROOT)
+      Colores extraídos de la Página 7 del manual.
+      ========================================================================== */
+   :root {
+     /* Paleta Cromática Principal */
+     --nadia-white-bg: #F5F5F5;      /* Fondo general  */
+     --nadia-blue-primary: #2E27F3;  /* Azul vibrante principal  */
+     --nadia-black-text: #2A2A2A;    /* Texto oscuro / Negro suave  */
+     --nadia-green-accent: #98D161;  /* Verde acento [cite: 81] */
+     --nadia-purple-secondary: #827DF8; /* Lila / Violeta secundario [cite: 85] */
+   
+     /* Tipografía */
+     --font-family-base: 'Inter', sans-serif; /*  */
+     
+     /* Pesos tipográficos según manual [cite: 53, 54, 58] */
+     --weight-light: 300;   /* Para cuerpo de texto */
+     --weight-regular: 400; /* Para H2 y subtítulos */
+     --weight-medium: 500;  /* Para H1 y títulos principales */
+     --weight-bold: 700;    /* Para énfasis puntual (disponible en pág 5) [cite: 46] */
+   }
+   
+   /* ==========================================================================
+      3. ESTILOS BASE (RESET & BODY)
+      ========================================================================== */
+   * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+   
+   body {
+     font-family: var(--font-family-base);
+     background-color: var(--nadia-white-bg); /*  */
+     color: var(--nadia-black-text);          /*  */
+     font-weight: var(--weight-light);        /* El texto base es Light  */
+     line-height: 1.5;
+     font-size: 16px; 
+   }
+   
+   /* ==========================================================================
+      4. TIPOGRAFÍA Y JERARQUÍA
+      Definiciones específicas de la página 6.
+      ========================================================================== */
+   
+   /* H1 - Títulos Principales */
+   h1, .titulo-principal {
+     font-family: var(--font-family-base);
+     font-weight: var(--weight-medium); /* Inter Medium  */
+     color: var(--nadia-black-text);
+     margin-bottom: 1rem;
+     /* El manual muestra tamaños grandes para H1 */
+     font-size: 2.5rem; 
+   }
+   
+   /* H2 - Subtítulos */
+   h2, .subtitulo {
+     font-family: var(--font-family-base);
+     font-weight: var(--weight-regular); /* Inter Regular  */
+     color: var(--nadia-blue-primary); /* Se suele usar el color primario o negro */
+     margin-bottom: 0.75rem;
+     font-size: 1.75rem;
+   }
+   
+   /* P - Cuerpo de texto */
+   p, .texto-cuerpo {
+     font-family: var(--font-family-base);
+     font-weight: var(--weight-light); /* Inter Light  */
+     color: var(--nadia-black-text);
+     margin-bottom: 1rem;
+     font-size: 1rem;
+   }
+   
+   /* Negritas */
+   strong, b {
+     font-weight: var(--weight-bold); /* Inter Bold [cite: 46] */
+   }
+   
+   /* ==========================================================================
+      5. UTILIDADES DE COLOR Y FONDOS
+      ========================================================================== */
+   
+   /* Fondos sólidos */
+   .bg-primary { background-color: var(--nadia-blue-primary); color: #fff; }
+   .bg-secondary { background-color: var(--nadia-purple-secondary); color: #fff; }
+   .bg-accent { background-color: var(--nadia-green-accent); color: var(--nadia-black-text); }
+   .bg-dark { background-color: var(--nadia-black-text); color: #fff; }
+   
+   /* Texto coloreado */
+   .text-primary { color: var(--nadia-blue-primary); }
+   .text-accent { color: var(--nadia-green-accent); }
+   .text-secondary { color: var(--nadia-purple-secondary); }
+   
+   /* Gradiente de marca 
+      Basado en la trama visual de la página 9 que va de verde a violeta/azul  */
+   .bg-gradient-nadia {
+     background: linear-gradient(135deg, var(--nadia-green-accent) 0%, var(--nadia-blue-primary) 100%);
+   }
+   
+   /* ==========================================================================
+      6. ELEMENTOS GRÁFICOS
+      Basado en formas y estilos visuales del manual
+      ========================================================================== */
+   
+   /* Botón Estándar (Interpretación basada en la paleta) */
+   .btn {
+     display: inline-block;
+     padding: 0.75rem 1.5rem;
+     border-radius: 50px; /* Bordes redondeados orgánicos similares al logo */
+     text-decoration: none;
+     font-weight: var(--weight-medium);
+     transition: all 0.3s ease;
+     border: none;
+     cursor: pointer;
+   }
+   
+   .btn-primary {
+     background-color: var(--nadia-blue-primary);
+     color: #ffffff;
+   }
+   
+   .btn-primary:hover {
+     background-color: var(--nadia-purple-secondary); /* Hover al color secundario */
+   }
+   
+  /* Contenedores con borde redondeado suave (estilo "Nube" o "Flor")
+     Referencia a la imagen enmascarada de la página 10 [cite: 90] */
+  .card-rounded {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
   
-  .content {
-    padding: var(--spacing-lg) var(--spacing-md);
+  /* ==========================================================================
+     7. NAVEGACIÓN (NAVBAR)
+     ========================================================================== */
+  
+  .navbar {
+    background-color: var(--nadia-blue-primary) !important;
+    box-shadow: 0 2px 8px rgba(46, 39, 243, 0.2);
+    padding: 1rem 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .quarto-title .title {
-    font-size: var(--fs-4xl);
+  /* Navbar transparente cuando está sobre el hero */
+  .navbar.scrolled {
+    background-color: var(--nadia-blue-primary) !important;
+    box-shadow: 0 4px 12px rgba(46, 39, 243, 0.3);
   }
   
-  .description {
-    font-size: var(--fs-lg);
-  }
-  
-  table {
-    font-size: var(--fs-sm);
-  }
-  
-  table th,
-  table td {
-    padding: var(--spacing-sm);
-  }
-  
-  blockquote {
-    padding: var(--spacing-md);
-    margin: var(--spacing-lg) 0;
-  }
-}
-
-@media (max-width: 480px) {
   .navbar-brand {
-    font-size: var(--fs-lg);
+    font-weight: var(--weight-medium);
+    font-size: 1.5rem;
+    color: #ffffff !important;
+    letter-spacing: -0.01em;
   }
   
   .navbar-nav .nav-link {
-    padding: var(--spacing-sm) !important;
-    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: var(--weight-regular);
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.25rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
   }
   
-  table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-/* ============================================
-   Accessibility
-   ============================================ */
-
-/* Focus styles for keyboard navigation */
-*:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* Skip to main content link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary-color);
-  color: var(--bg-primary);
-  padding: var(--spacing-sm) var(--spacing-md);
-  text-decoration: none;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* ============================================
-   Print Styles
-   ============================================ */
-
-@media print {
-  .navbar,
-  .quarto-navbar-tools {
-    display: none;
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
   }
   
-  .content {
-    max-width: 100%;
-    padding: 0;
+  .navbar-toggler {
+    border: none;
+    color: #ffffff;
   }
+  
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  }
+  
+  /* ==========================================================================
+     8. ENLACES
+     ========================================================================== */
   
   a {
-    color: var(--text-primary);
+    color: var(--nadia-blue-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: var(--weight-regular);
+  }
+  
+  a:hover {
+    color: var(--nadia-purple-secondary);
     text-decoration: underline;
   }
   
-  blockquote {
-    border-left: 3px solid var(--text-primary);
-    background-color: transparent;
+  a:focus {
+    outline: 2px solid var(--nadia-blue-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
-}
-
-/* ============================================
-   Utility Classes
-   ============================================ */
-
-.text-center {
-  text-align: center;
-}
-
-.text-primary {
-  color: var(--primary-color);
-}
-
-.text-secondary {
-  color: var(--text-secondary);
-}
-
-.bg-light {
-  background-color: var(--bg-secondary);
-}
-
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: var(--spacing-sm); }
-.mt-2 { margin-top: var(--spacing-md); }
-.mt-3 { margin-top: var(--spacing-lg); }
-.mt-4 { margin-top: var(--spacing-xl); }
-
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: var(--spacing-sm); }
-.mb-2 { margin-bottom: var(--spacing-md); }
-.mb-3 { margin-bottom: var(--spacing-lg); }
-.mb-4 { margin-bottom: var(--spacing-xl); }
+  
+  /* ==========================================================================
+     9. BLOCKQUOTES (CITAS)
+     ========================================================================== */
+  
+  blockquote {
+    border-left: 4px solid var(--nadia-blue-primary);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--nadia-black-text);
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  blockquote p {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: var(--weight-light);
+  }
+  
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+  
+  blockquote strong {
+    color: var(--nadia-blue-primary);
+  }
+  
+  /* ==========================================================================
+     10. LISTAS
+     ========================================================================== */
+  
+  ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+  
+  li {
+    margin-bottom: 0.75rem;
+    color: var(--nadia-black-text);
+    line-height: 1.7;
+    font-weight: var(--weight-light);
+  }
+  
+  li strong {
+    color: var(--nadia-black-text);
+    font-weight: var(--weight-bold);
+  }
+  
+  /* ==========================================================================
+     11. TABLAS
+     ========================================================================== */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  table thead {
+    background-color: var(--nadia-blue-primary);
+    color: #ffffff;
+  }
+  
+  table th {
+    padding: 1rem;
+    font-weight: var(--weight-medium);
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  table td {
+    padding: 1rem;
+    border-top: 1px solid rgba(42, 42, 42, 0.1);
+    color: var(--nadia-black-text);
+    font-weight: var(--weight-light);
+  }
+  
+  table tbody tr:hover {
+    background-color: var(--nadia-white-bg);
+    transition: background-color 0.3s ease;
+  }
+  
+  table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* ==========================================================================
+     12. IMÁGENES
+     ========================================================================== */
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  
+  .quarto-figure {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .quarto-figure img {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .quarto-figure img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  /* ==========================================================================
+     13. SECCIONES Y TÍTULOS
+     ========================================================================== */
+  
+  section {
+    margin: 2.5rem 0;
+  }
+  
+  h3, h4 {
+    font-family: var(--font-family-base);
+    font-weight: var(--weight-regular);
+    color: var(--nadia-blue-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(46, 39, 243, 0.2);
+  }
+  
+  /* ==========================================================================
+     14. HORIZONTAL RULES (LÍNEAS DIVISORIAS)
+     ========================================================================== */
+  
+  hr {
+    border: none;
+    border-top: 2px solid rgba(42, 42, 42, 0.1);
+    margin: 3rem 0;
+  }
+  
+  /* ==========================================================================
+     15. CONTENIDO PRINCIPAL
+     ========================================================================== */
+  
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  
+  .quarto-title-block {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(42, 42, 42, 0.1);
+  }
+  
+  .quarto-title .title {
+    font-size: 3rem;
+    font-weight: var(--weight-medium);
+    color: var(--nadia-black-text);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .description {
+    font-size: 1.25rem;
+    color: var(--nadia-black-text);
+    font-weight: var(--weight-light);
+    margin-top: 1rem;
+  }
+  
+  /* ==========================================================================
+     16. CÓDIGO
+     ========================================================================== */
+  
+  code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+    font-size: 0.9em;
+    background-color: rgba(46, 39, 243, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    color: var(--nadia-blue-primary);
+    font-weight: var(--weight-regular);
+  }
+  
+  pre {
+    background-color: rgba(42, 42, 42, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-left: 4px solid var(--nadia-blue-primary);
+  }
+  
+  pre code {
+    background-color: transparent;
+    padding: 0;
+    color: var(--nadia-black-text);
+  }
+  
+  /* ==========================================================================
+     17. RESPONSIVE DESIGN
+     ========================================================================== */
+  
+  @media (max-width: 768px) {
+    h1, .titulo-principal {
+      font-size: 2rem;
+    }
+    
+    h2, .subtitulo {
+      font-size: 1.5rem;
+    }
+    
+    .quarto-title .title {
+      font-size: 2rem;
+    }
+    
+    .description {
+      font-size: 1.1rem;
+    }
+    
+    .content {
+      padding: 1.5rem 1rem;
+    }
+    
+    table {
+      font-size: 0.9rem;
+    }
+    
+    table th,
+    table td {
+      padding: 0.75rem;
+    }
+    
+    blockquote {
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-brand {
+      font-size: 1.25rem;
+    }
+    
+    .navbar-nav .nav-link {
+      padding: 0.5rem !important;
+      font-size: 0.9rem;
+    }
+    
+    table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    h1, .titulo-principal {
+      font-size: 1.75rem;
+    }
+  }
+  
+  /* ==========================================================================
+     18. ACCESIBILIDAD
+     ========================================================================== */
+  
+  *:focus-visible {
+    outline: 2px solid var(--nadia-blue-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--nadia-blue-primary);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 100;
+    font-weight: var(--weight-medium);
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
+  
+  /* ==========================================================================
+     19. UTILIDADES ADICIONALES
+     ========================================================================== */
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .mt-0 { margin-top: 0; }
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .mt-3 { margin-top: 1.5rem; }
+  .mt-4 { margin-top: 2rem; }
+  
+  .mb-0 { margin-bottom: 0; }
+  .mb-1 { margin-bottom: 0.5rem; }
+  .mb-2 { margin-bottom: 1rem; }
+  .mb-3 { margin-bottom: 1.5rem; }
+  .mb-4 { margin-bottom: 2rem; }
+  
+  /* ==========================================================================
+     20. HERO HEADER (FULL SCREEN)
+     Basado en diseño NADIA con gradiente y formas orgánicas
+     ========================================================================== */
+  
+  .hero-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--nadia-green-accent) 0%, var(--nadia-blue-primary) 50%, var(--nadia-purple-secondary) 100%);
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    margin-top: -60px; /* Compensar el navbar fijo */
+    padding-top: 60px;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff;
+    max-width: 900px;
+    padding: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-logo {
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out 0.2s both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .hero-logo-img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: var(--weight-medium);
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+  
+  .hero-description {
+    font-size: 1.5rem;
+    font-weight: var(--weight-light);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+  }
+  
+  .btn-hero {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: var(--weight-medium);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+  
+  .btn-hero.btn-primary {
+    background-color: #ffffff;
+    color: var(--nadia-blue-primary);
+  }
+  
+  .btn-hero.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+  
+  .btn-hero.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  
+  .btn-hero.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+  
+  /* Formas decorativas orgánicas (estilo NADIA) */
+  .hero-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: floatShape 20s ease-in-out infinite;
+  }
+  
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+    background: #ffffff;
+    top: 10%;
+    left: -5%;
+    animation-delay: 0s;
+  }
+  
+  .shape-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--nadia-green-accent);
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+  
+  .shape-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--nadia-purple-secondary);
+    top: 50%;
+    right: -3%;
+    animation-delay: 4s;
+  }
+  
+  @keyframes floatShape {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(30px, -30px) rotate(120deg);
+    }
+    66% {
+      transform: translate(-20px, 20px) rotate(240deg);
+    }
+  }
+  
+  /* Scroll indicator */
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+  
+  .hero-scroll-indicator::after {
+    content: '↓';
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Ajustes para que el contenido principal no quede oculto */
+  #nosotros {
+    scroll-margin-top: 80px;
+    padding-top: 3rem;
+  }
+  
+  /* Asegurar que el navbar esté sobre el hero */
+  .navbar {
+    position: fixed !important;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Ajustar el contenido después del hero */
+  body.nav-fixed .quarto-container {
+    margin-top: 0;
+  }
+  
+  /* El hero debe estar antes del contenido normal */
+  .hero-header + * {
+    margin-top: 0;
+  }
+  
+  /* Contenido después del hero con fondo blanco */
+  #nosotros,
+  .content {
+    background-color: var(--nadia-white-bg);
+    position: relative;
+    z-index: 5;
+  }
+  
+  /* ==========================================================================
+     21. RESPONSIVE HERO
+     ========================================================================== */
+  
+  @media (max-width: 768px) {
+    .hero-header {
+      min-height: 500px;
+      padding: 1rem;
+    }
+    
+    .hero-logo-img {
+      max-width: 250px;
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn-hero {
+      width: 100%;
+      max-width: 300px;
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+    }
+    
+    .shape-1 {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .shape-2 {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .shape-3 {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-header {
+      min-height: 400px;
+    }
+    
+    .hero-logo-img {
+      max-width: 200px;
+    }
+    
+    .hero-title {
+      font-size: 1.75rem;
+    }
+    
+    .hero-description {
+      font-size: 1rem;
+    }
+  }
+  
+  /* ==========================================================================
+     22. FOOTER
+     ========================================================================== */
+  
+  .site-footer {
+    background-color: var(--nadia-black-text);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .footer-logo {
+    text-align: center;
+  }
+  
+  .footer-logo-img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer-logo-img:hover {
+    opacity: 1;
+  }
+  
+  .footer-info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    font-weight: var(--weight-light);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: var(--weight-regular);
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: var(--nadia-green-accent);
+    text-decoration: underline;
+  }
+  
+  .footer-separator {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0.5rem;
+  }
+  
+  /* Responsive Footer */
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: 2rem 1.5rem;
+    }
+    
+    .footer-logo-img {
+      max-width: 250px;
+    }
+    
+    .footer-text {
+      font-size: 0.9rem;
+    }
+    
+    .footer-links {
+      font-size: 0.85rem;
+      gap: 0.75rem;
+    }
+    
+    .footer-separator {
+      margin: 0 0.25rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .site-footer {
+      padding: 1.5rem 1rem;
+    }
+    
+    .footer-logo-img {
+      max-width: 200px;
+    }
+    
+    .footer-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .footer-separator {
+      display: none;
+    }
+  }
+  
+  /* ==========================================================================
+     23. PRINT STYLES
+     ========================================================================== */
+  
+  @media print {
+    .hero-header {
+      height: auto;
+      min-height: auto;
+      page-break-after: always;
+    }
+    
+    .hero-shapes {
+      display: none;
+    }
+    
+    .navbar,
+    .quarto-navbar-tools {
+      display: none;
+    }
+    
+    .content {
+      max-width: 100%;
+      padding: 0;
+    }
+    
+    a {
+      color: var(--nadia-black-text);
+      text-decoration: underline;
+    }
+    
+    blockquote {
+      border-left: 3px solid var(--nadia-black-text);
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }

@@ -70,4 +70,22 @@ perspectivas y sentimientos respecto a esta herramienta.
 
 #### 
 
-![](logos_combinados.png){fig-align="center" width="400"}
+```{=html}
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="logos_combinados.png" alt="CEPE-Fundar Logo" class="footer-logo-img">
+    </div>
+    <div class="footer-info">
+      <p class="footer-text">CEPE-Fundar | Inteligencia Artificial para el Desarrollo de Argentina</p>
+      <div class="footer-links">
+        <a href="https://www.utdt.edu/listado_contenidos.php?id_item_menu=25278" target="_blank" rel="noopener">CEPE</a>
+        <span class="footer-separator">|</span>
+        <a href="https://fund.ar/serie/inteligencia-artificial" target="_blank" rel="noopener">Fundar</a>
+        <span class="footer-separator">|</span>
+        <a href="https://github.com/cepe-fundar" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+```

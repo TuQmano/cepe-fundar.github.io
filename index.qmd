@@ -3,6 +3,60 @@ title: "Nosotros"
 description: "Inteligencia Artificial para el Desarrollo de Argentina"
 ---
 
+```{=html}
+<div class="hero-header">
+  <div class="hero-content">
+    <div class="hero-logo">
+      <img src="nadia.png" alt="NADIA Logo" class="hero-logo-img">
+    </div>
+    <h1 class="hero-title">Inteligencia Artificial para el Desarrollo de Argentina</h1>
+    <p class="hero-description">Traducimos datos en acción para impulsar un desarrollo inclusivo, competitivo y sostenible</p>
+    <div class="hero-buttons">
+      <a href="#nosotros" class="btn btn-primary btn-hero" onclick="document.getElementById('nosotros').scrollIntoView({behavior: 'smooth'}); return false;">Conoce más</a>
+      <a href="encuesta.html" class="btn btn-secondary btn-hero">Nuestra investigación</a>
+    </div>
+  </div>
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-scroll-indicator" onclick="document.getElementById('nosotros').scrollIntoView({behavior: 'smooth'});"></div>
+</div>
+
+<script>
+  // Scroll suave para enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && href.length > 1) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+  
+  // Efecto de scroll en navbar
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero-header');
+    if (window.scrollY > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+```
+
+<div id="nosotros">
+
 El **El Centro de Políticas Públicas** ([**CEPE**](https://www.utdt.edu/listado_contenidos.php?id_item_menu=25278)) de la Universidad Torcuato Di Tella y [**Fundar**](https://fund.ar/serie/inteligencia-artificial), en el marco de su agenda conjunta sobre inteligencia artificial, innovación y desarrollo productivo, trabajamos para traducir datos en acción: Empresas: promover la adopción responsable y productiva de IA. Gobiernos: proveer evidencia para políticas éticas e inclusivas. Sociedad: impulsar la alfabetización digital y capacitación laboral.
 
 Somos el primer espacio en Argentina dedicado a producir datos, investigación y proyectos innovadores sobre inteligencia artificial, con foco en políticas públicas y desarrollo económico. Queremos que la IA sea un vector para impulsar un desarrollo inclusivo, competitivo y sostenible para Argentina y la región.
@@ -46,4 +100,22 @@ Nuestro objetivo es que la inteligencia artificial se convierta en un motor de p
 
 #### 
 
-![](logos_combinados.png){fig-align="center" width="400"}
+```{=html}
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="logos_combinados.png" alt="CEPE-Fundar Logo" class="footer-logo-img">
+    </div>
+    <div class="footer-info">
+      <p class="footer-text">CEPE-Fundar | Inteligencia Artificial para el Desarrollo de Argentina</p>
+      <div class="footer-links">
+        <a href="https://www.utdt.edu/listado_contenidos.php?id_item_menu=25278" target="_blank" rel="noopener">CEPE</a>
+        <span class="footer-separator">|</span>
+        <a href="https://fund.ar/serie/inteligencia-artificial" target="_blank" rel="noopener">Fundar</a>
+        <span class="footer-separator">|</span>
+        <a href="https://github.com/cepe-fundar" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+```

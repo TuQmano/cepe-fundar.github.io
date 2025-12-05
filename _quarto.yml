@@ -4,7 +4,7 @@ project:
 website:
   title: "CEPE-Fundar"
   navbar:
-    background: "#1a4d7a"
+    background: "#2E27F3"
     logo: " "
     left:
       - href: index.qmd
