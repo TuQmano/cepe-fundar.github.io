@@ -304,28 +304,114 @@
   }
   
   /* ==========================================================================
-     12. IMÁGENES
+     12. IMÁGENES RESPONSIVE
      ========================================================================== */
   
+  /* Estilos base para todas las imágenes */
   img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
+    display: block;
+    object-fit: contain;
   }
   
+  /* Imágenes dentro de contenedores */
+  img.img-fluid,
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
+  
+  /* Figuras de Quarto */
   .quarto-figure {
     margin: 2rem 0;
     text-align: center;
+    width: 100%;
   }
   
-  .quarto-figure img {
+  .quarto-figure img,
+  .quarto-figure figure img,
+  figure img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+    display: block;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: contain;
   }
   
-  .quarto-figure img:hover {
+  .quarto-figure img:hover,
+  .quarto-figure figure img:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  /* Imágenes con ancho específico (se mantienen responsive) */
+  img[width] {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+  
+  /* Contenedores de imágenes */
+  .figure,
+  .quarto-figure-center {
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .figure img,
+  .figure-img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+  
+  /* Imágenes en párrafos y contenido general */
+  p img,
+  section img,
+  .content img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 1rem auto;
+    object-fit: contain;
+  }
+  
+  /* Imágenes en rutas de carpetas (como images/flyer.png) */
+  img[src*="images/"],
+  img[src*="/images/"] {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 1rem auto;
+    object-fit: contain;
+  }
+  
+  /* Asegurar que imágenes con atributos width sean responsive */
+  img[width] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Clase helper para imágenes responsive */
+  .img-responsive {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    display: block;
   }
   
   /* ==========================================================================
@@ -587,8 +673,12 @@
     max-width: 400px;
     width: 100%;
     height: auto;
+    max-height: 300px;
+    object-fit: contain;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
     animation: float 3s ease-in-out infinite;
+    display: block;
+    margin: 0 auto;
   }
   
   @keyframes float {
@@ -792,6 +882,19 @@
     
     .hero-logo-img {
       max-width: 250px;
+      max-height: 200px;
+      width: 80%;
+    }
+    
+    /* Imágenes responsive en tablets */
+    img {
+      max-width: 100%;
+    }
+    
+    .quarto-figure img,
+    figure img {
+      max-width: 100%;
+      width: 100%;
     }
     
     .hero-title {
@@ -839,6 +942,33 @@
     
     .hero-logo-img {
       max-width: 200px;
+      max-height: 150px;
+      width: 70%;
+    }
+    
+    /* Imágenes responsive en móviles */
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    
+    .quarto-figure {
+      margin: 1.5rem 0;
+    }
+    
+    .quarto-figure img,
+    figure img,
+    .figure img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+    }
+    
+    /* Imágenes con ancho específico se adaptan */
+    img[width] {
+      max-width: 100% !important;
+      width: 100% !important;
+      height: auto !important;
     }
     
     .hero-title {
@@ -880,9 +1010,13 @@
     max-width: 300px;
     width: 100%;
     height: auto;
+    max-height: 150px;
+    object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.9;
     transition: opacity 0.3s ease;
+    display: block;
+    margin: 0 auto;
   }
   
   .footer-logo-img:hover {
@@ -935,6 +1069,13 @@
     
     .footer-logo-img {
       max-width: 250px;
+      max-height: 120px;
+      width: 80%;
+    }
+    
+    /* Imágenes en footer responsive */
+    .footer-logo {
+      width: 100%;
     }
     
     .footer-text {
@@ -958,6 +1099,14 @@
     
     .footer-logo-img {
       max-width: 200px;
+      max-height: 100px;
+      width: 70%;
+    }
+    
+    /* Asegurar que todas las imágenes sean responsive */
+    .footer-logo {
+      width: 100%;
+      text-align: center;
     }
     
     .footer-links {
